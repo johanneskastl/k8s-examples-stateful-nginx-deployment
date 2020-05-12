@@ -44,3 +44,17 @@ $
 ```
 
 Please note, we only have one PersistentVolumeClaim, so we only get one pod, not three as requested (`replicas: 3`).
+
+## Service using the StatefulSet
+
+Create a service using the StatefulSet with `kubectl apply -f 05_nginx-service-statefulset.yaml`.
+
+Afterwards, run curl or wget against your service's ClusterIP:
+
+```
+$ kubectl get svc|grep nginx-service-statefulset
+nginx-service-statefulset   ClusterIP   10.100.166.24   <none>        80/TCP    46s
+$ curl 10.100.166.24
+If you can read this, nginx delivered from the hostPath volume...
+$
+```
