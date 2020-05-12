@@ -14,7 +14,10 @@ If you can read this, nginx delivered from the hostPath volume...
 Then create (in this order):
 - the PersistentVolume (using `kubectl apply -f 01_PersistentVolume-hostPath-nginx.yaml`)
 - the PersistentVolumeClaim (using `kubectl apply -f 02_PersistentVolumeClaim-hostPath-nginx.yaml`)
-- a pod using that PersistentVolumeClaim (using `kubectl apply -f 03_Pod-nginx-with-pvc.yaml`)
+
+# Single pod using the persistent volume
+
+Create a pod using the previously prepared PersistentVolumeClaim (using `kubectl apply -f 03_Pod-nginx-with-pvc.yaml`)
 
 Afterwards, run curl or wget against your pod's cluster-internal IP:
 
