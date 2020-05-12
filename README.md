@@ -58,3 +58,14 @@ $ curl 10.100.166.24
 If you can read this, nginx delivered from the hostPath volume...
 $
 ```
+
+# Ingress for the StatefulSet service
+
+Deploy a ingress extension for the `nginx-service-statefulset` service using ` kubectl apply -f 06_nginx-ingress-statefulset.yaml`.
+
+This will listen on any IP or hostname with the `/statefulset` path, e.g. using 192.168.0.2 as the external IP:
+```
+$ curl 192.168.0.2/statefulset
+If you can read this, nginx delivered from the hostPath volume...
+$
+```
