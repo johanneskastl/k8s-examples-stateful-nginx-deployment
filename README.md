@@ -3,7 +3,7 @@ Deploying nginx with website data from a persistent storage (on the host)
 
 ## Prepare local storage
 
-On your node(s), create the directory /opt/kubernetes-storage/nginx and add a simple file called `index.html`.
+On your node(s), create the directory `/opt/kubernetes-storage/nginx/` and add a simple file called `index.html`.
 
 This file can contain whatever content you want to have, for a starter try this:
 
