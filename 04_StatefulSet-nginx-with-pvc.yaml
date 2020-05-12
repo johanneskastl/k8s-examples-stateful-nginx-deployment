@@ -1,0 +1,30 @@
+---
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: nginx-statefulset
+spec:
+  selector:
+    matchLabels:
+      app: nginx-statefulset # has to match .spec.template.metadata.labels
+  serviceName: "nginx-statefulset-headlessservice"
+  replicas: 3 # by default is 1
+  template:
+    metadata:
+      labels:
+        app: nginx-statefulset # has to match .spec.selector.matchLabels
+    spec:
+      terminationGracePeriodSeconds: 10
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+          name: web
+        volumeMounts:
+        - name: pv-volume-for-statefulset
+          mountPath: /usr/share/nginx/html
+      volumes:
+        - name: pv-volume-for-statefulset
+          persistentVolumeClaim:
+            claimName: nginx-hostpath-volumeclaim
