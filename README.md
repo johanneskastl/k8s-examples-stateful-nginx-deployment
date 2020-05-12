@@ -29,3 +29,18 @@ If you can read this, nginx delivered from the hostPath volume...
 $
 ```
 
+## StatefulSet with persistent volume
+
+Create the StatefulSet using `kubectl apply -f 04_StatefulSet-nginx-with-pvc.yaml`.
+
+Afterwards, run curl or wget against your pod's cluster-internal IP:
+
+```
+$ kubectl describe pod/nginx-statefulset-0|grep "^IP"
+IP:           10.32.0.37
+$ curl 10.32.0.37
+If you can read this, nginx delivered from the hostPath volume...
+$
+```
+
+Please note, we only have one PersistentVolumeClaim, so we only get one pod, not three as requested (`replicas: 3`).
