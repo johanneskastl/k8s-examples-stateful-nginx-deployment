@@ -43,8 +43,6 @@ If you can read this, nginx delivered from the hostPath volume...
 $
 ```
 
-Please note, we only have one PersistentVolumeClaim, so we only get one pod, not three as requested (`replicas: 3`).
-
 ## Service using the StatefulSet
 
 Create a service using the StatefulSet with `kubectl apply -f 05_nginx-service-statefulset.yaml`.
