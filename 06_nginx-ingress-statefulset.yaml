@@ -8,8 +8,8 @@ metadata:
 spec:
   rules:
     - http:
-      paths:
-        - path: /statefulset
-          backend:
-            serviceName: nginx-service-statefulset
-            servicePort: 80
+        paths:
+          - path: /statefulset
+            backend:
+              serviceName: nginx-service-statefulset
+              servicePort: 80
